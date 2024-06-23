@@ -20,9 +20,12 @@ public class Main {
 
         System.out.println("\nСписок автомобилелей участвующих в гонке:");
         for (Car car : carsList) {
-            System.out.println("\n - '" + car.name + "', может разгоняться до " + car.speed + " км/ч.");
+            System.out.printf("\n - '%s', может разгоняться до %d км/ч.%n", car.name, car.speed);
         }
 
+        System.out.println("\nНа старт, внимание, марш!");
+        Race carRace = new Race(carsList);
+        carRace.getWinner();
     }
 
     private static final int MIN_SPEED = 1, MAX_SPEED = 250;
@@ -48,19 +51,17 @@ public class Main {
 
     private static int setSpeed() {
         Scanner scannerSpeed = new Scanner(System.in);
-        int inputSpeed = 0;
+        int inputSpeed;
 
-        while (!((inputSpeed >= MIN_SPEED) && (inputSpeed <= MAX_SPEED))) {
-
+        do {
             System.out.println("Укажите максимально развиваемую скорость, введите число в пределах от 1 до 250:");
             inputSpeed = scannerSpeed.nextInt();
 
             if (!((inputSpeed >= MIN_SPEED) && (inputSpeed <= MAX_SPEED))) {
-                System.out.println("Введено недопустимое значение максимальной скорости автомобиля!");
+                System.out.println("\nВведено недопустимое значение максимальной скорости автомобиля!");
             }
-        }
+        } while (!((inputSpeed >= MIN_SPEED) && (inputSpeed <= MAX_SPEED)));
 
         return inputSpeed;
     }
-
 }
