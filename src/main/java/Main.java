@@ -9,8 +9,8 @@ public class Main {
 
         ArrayList<Car> carsList = new ArrayList<>();
 
-        for (int i = 1; i <= numberOfCars; i++) {
-            int carNumber = i;
+        for (int carNumber = 1; carNumber <= numberOfCars; carNumber++) {
+
             System.out.println("\nОпишите параметры автомобиля №" + carNumber);
 
             nameCar = setName();
