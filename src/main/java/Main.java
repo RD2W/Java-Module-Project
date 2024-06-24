@@ -1,24 +1,22 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-
-        System.out.println("Добро пожаловать на автогонки!\nДля проведения гонок нужно три автомобиля.");
-
+        System.out.println("\nДобро пожаловать на автогонки!\nДля проведения гонок нужно три автомобиля.");
         ArrayList<Car> carsList = new ArrayList<>();
 
         for (int carNumber = 1; carNumber <= NUMBER_OF_CARS; carNumber++) {
-
             System.out.println("\nОпишите параметры автомобиля №" + carNumber);
-
             nameCar = setName();
             speedCar = setSpeed();
             carsList.add(new Car(nameCar, speedCar));
         }
 
         System.out.println("\nСписок автомобилелей участвующих в гонке:");
+
         for (Car car : carsList) {
             System.out.printf("\n - '%s', может разгоняться до %d км/ч.%n", car.name, car.speed);
         }
@@ -54,12 +52,19 @@ public class Main {
         int inputSpeed;
 
         do {
-            System.out.printf("Укажите максимально развиваемую скорость, введите число в пределах от %d до %d:%n", MIN_SPEED, MAX_SPEED);
-            inputSpeed = scannerSpeed.nextInt();
+            System.out.printf("Укажите максимально развиваемую скорость, введите целое число в пределах от %d до %d:%n", MIN_SPEED, MAX_SPEED);
 
-            if (!((inputSpeed >= MIN_SPEED) && (inputSpeed <= MAX_SPEED))) {
-                System.out.println("\nВведено недопустимое значение максимальной скорости автомобиля!");
+            if (!scannerSpeed.hasNextInt()) {
+                Random randomSpeed = new Random();
+                inputSpeed = 1 + randomSpeed.nextInt(250);
+                System.out.println("В консоль введено не целое число, поэтому скорость автомобиля будет указана рандомно и составит: " + inputSpeed);
+            } else {
+                inputSpeed = scannerSpeed.nextInt();
+                if (!((inputSpeed >= MIN_SPEED) && (inputSpeed <= MAX_SPEED))) {
+                    System.out.println("\nВведено недопустимое значение максимальной скорости автомобиля!");
+                }
             }
+
         } while (!((inputSpeed >= MIN_SPEED) && (inputSpeed <= MAX_SPEED)));
 
         return inputSpeed;

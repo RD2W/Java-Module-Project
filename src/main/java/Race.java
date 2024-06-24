@@ -12,7 +12,6 @@ public class Race {
     }
 
     private Car findWinner(ArrayList<Car> cars) {
-
         ArrayList<Integer> distancesList = new ArrayList<>();
         HashMap<Integer, Car> carsMap = new HashMap<>();
 
