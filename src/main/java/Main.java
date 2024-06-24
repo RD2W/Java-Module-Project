@@ -9,7 +9,7 @@ public class Main {
 
         ArrayList<Car> carsList = new ArrayList<>();
 
-        for (int carNumber = 1; carNumber <= numberOfCars; carNumber++) {
+        for (int carNumber = 1; carNumber <= NUMBER_OF_CARS; carNumber++) {
 
             System.out.println("\nОпишите параметры автомобиля №" + carNumber);
 
@@ -28,8 +28,8 @@ public class Main {
         carRace.getWinner();
     }
 
-    private static final int MIN_SPEED = 1, MAX_SPEED = 250;
-    static int numberOfCars = 3, speedCar = 0;
+    private static final int NUMBER_OF_CARS = 3, MIN_SPEED = 1, MAX_SPEED = 250;
+    static int speedCar;
     static String nameCar;
 
     private static String setName() {
@@ -38,7 +38,7 @@ public class Main {
 
         do {
             System.out.println("Введите имя автомобиля:");
-            inputName = scannerName.nextLine().trim().toLowerCase();
+            inputName = scannerName.next().trim().toLowerCase();
 
             if (inputName.isBlank() || inputName.isEmpty()) {
                 System.out.println("Введено не корректное имя автомобиля!");
@@ -54,7 +54,7 @@ public class Main {
         int inputSpeed;
 
         do {
-            System.out.println("Укажите максимально развиваемую скорость, введите число в пределах от 1 до 250:");
+            System.out.printf("Укажите максимально развиваемую скорость, введите число в пределах от %d до %d:%n", MIN_SPEED, MAX_SPEED);
             inputSpeed = scannerSpeed.nextInt();
 
             if (!((inputSpeed >= MIN_SPEED) && (inputSpeed <= MAX_SPEED))) {

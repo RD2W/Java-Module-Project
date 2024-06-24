@@ -23,7 +23,7 @@ public class Race {
         }
 
         int maxDistance = Collections.max(distancesList);
-        System.out.printf("%nГонка прошла успешно.%nМаксимальная дистанция, преодоленная победителем гонки, составила %d км.%n", maxDistance);
+        System.out.printf("%nГонка прошла успешно, заезд длился %d ч.%nМаксимальная дистанция, преодоленная победителем гонки, составила %d км.%n", RACE_DURATION, maxDistance);
         return carsMap.get(maxDistance);
     }
     
