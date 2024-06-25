@@ -10,8 +10,8 @@ public class Main {
 
         for (int carNumber = 1; carNumber <= NUMBER_OF_CARS; carNumber++) {
             System.out.println("\nОпишите параметры автомобиля №" + carNumber);
-            nameCar = setName();
-            speedCar = setSpeed();
+            String nameCar = setName();
+            int speedCar = setSpeed();
             carsList.add(new Car(nameCar, speedCar));
         }
 
@@ -27,8 +27,6 @@ public class Main {
     }
 
     private static final int NUMBER_OF_CARS = 3, MIN_SPEED = 1, MAX_SPEED = 250;
-    static int speedCar;
-    static String nameCar;
 
     private static String setName() {
         Scanner scannerName = new Scanner(System.in);
