@@ -58,12 +58,12 @@ public class Main {
                 System.out.println("В консоль введено не целое число, поэтому скорость автомобиля будет указана рандомно и составит: " + inputSpeed);
             } else {
                 inputSpeed = scannerSpeed.nextInt();
-                if (!((inputSpeed >= MIN_SPEED) && (inputSpeed <= MAX_SPEED))) {
+                if (inputSpeed < MIN_SPEED || inputSpeed > MAX_SPEED) {
                     System.out.println("\nВведено недопустимое значение максимальной скорости автомобиля!");
                 }
             }
 
-        } while (!((inputSpeed >= MIN_SPEED) && (inputSpeed <= MAX_SPEED)));
+        } while (inputSpeed < MIN_SPEED || inputSpeed > MAX_SPEED);
 
         return inputSpeed;
     }
